@@ -24,15 +24,15 @@
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg leading-tight">Thư Viện Học Tập Quốc Gia</h1>
-                    <p class="text-xs text-indigo-200">ID Tự Động & Lớp Học Trực Tuyến</p>
+                    <h1 class="font-bold text-base md:text-lg leading-tight">Thư Viện Học Tập Quốc Gia</h1>
+                    <p class="text-[11px] text-indigo-200">ID Tự Động & Hỗ Trợ Mobile</p>
                 </div>
             </div>
             
-            <div class="flex items-center space-x-3">
-                <button onclick="openUploadModal()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-3.5 py-2 rounded-lg text-sm font-medium transition flex items-center space-x-2 shadow-sm">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span class="hidden sm:inline">Đóng Góp Tài Liệu</span>
+            <div class="flex items-center space-x-2">
+                <button onclick="openUploadModal()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center space-x-1.5 shadow-sm">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <span class="hidden sm:inline">Đăng Góp Ảnh/Tài Liệu</span>
                 </button>
 
                 <div id="authNavbarArea" class="flex items-center space-x-2"></div>
@@ -46,15 +46,15 @@
         <!-- Tabs -->
         <div id="mainTabsHeader" class="flex space-x-4 border-b border-slate-200 mb-6 hidden">
             <button onclick="switchMainTab('home')" id="tabHomeBtn" class="py-2 px-1 font-semibold text-sm border-b-2 border-indigo-600 text-indigo-600 transition">Kho Tài Liệu Chung</button>
-            <button onclick="switchMainTab('classes')" id="tabClassesBtn" class="py-2 px-1 font-semibold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">Lớp Học Trực Tuyến & Nhóm Lớp</button>
+            <button onclick="switchMainTab('classes')" id="tabClassesBtn" class="py-2 px-1 font-semibold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">Lớp Học Trực Tuyến</button>
         </div>
 
         <!-- HERO -->
         <div id="heroSection" class="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-6 md:p-8 text-white mb-8 shadow-lg flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0 md:w-2/3">
-                <span class="bg-indigo-500/50 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Hệ thống ID định danh & AI kiểm duyệt thông minh</span>
+                <span class="bg-indigo-500/50 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Hỗ trợ chọn ảnh từ thư viện điện thoại & AI kiểm duyệt</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2">Nền tảng học tập chuẩn mực & an toàn giáo dục</h2>
-                <p class="text-indigo-100 mt-2 text-sm md:text-base">Mỗi tài khoản và tài liệu đều có mã ID riêng biệt. Tải file tài liệu trực tiếp và xem ngay lập tức.</p>
+                <p class="text-indigo-100 mt-2 text-sm md:text-base">Tải tài liệu, bài tập nhanh chóng bằng cách chọn trực tiếp từ album ảnh điện thoại hoặc chụp hình bằng camera.</p>
             </div>
             <div class="w-full md:w-1/3 flex justify-center">
                 <div class="bg-white/15 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center w-full max-w-xs">
@@ -71,12 +71,9 @@
                     <div class="md:col-span-2 flex space-x-2">
                         <div class="relative flex-grow">
                             <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400"><i class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" id="searchInput" onkeypress="handleSearchKeyPress(event)" placeholder="Tìm kiếm theo tên tài liệu, mã số, môn, tác giả..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="text" id="searchInput" onkeypress="handleSearchKeyPress(event)" placeholder="Tìm kiếm theo tên, mã số, môn học..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         </div>
-                        <button onclick="triggerSearch()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center space-x-1 shrink-0 shadow-sm">
-                            <i class="fa-solid fa-search"></i>
-                            <span class="hidden sm:inline">Tìm kiếm</span>
-                        </button>
+                        <button onclick="triggerSearch()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shrink-0">Tìm</button>
                     </div>
                     <div>
                         <select id="filterGrade" onchange="filterDocuments()" class="w-full py-2 px-3 border border-slate-200 rounded-lg text-sm bg-white">
@@ -134,7 +131,7 @@
                     <div class="bg-amber-500 text-white p-2 rounded-lg"><i class="fa-solid fa-user-shield text-xl"></i></div>
                     <div>
                         <h3 class="font-bold text-amber-900">Bảng Quản Trị Tối Cao (Admin)</h3>
-                        <p class="text-xs text-amber-700">Kiểm soát tài khoản và lịch sử kiểm duyệt AI.</p>
+                        <p class="text-xs text-amber-700">Kiểm soát tài khoản và lịch sử kiểm duyệt AI hình ảnh từ điện thoại.</p>
                     </div>
                 </div>
                 <button onclick="toggleAdminMode()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold">Thoát Admin</button>
@@ -150,9 +147,7 @@
                 <h3 id="viewFileTitle" class="font-bold text-base text-slate-800 truncate pr-4">Chi tiết tài liệu</h3>
                 <button onclick="closeViewFileModal()" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="flex-grow bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center relative border border-slate-200" id="fileViewerContainer">
-                <!-- Nội dung file nhúng hoặc ảnh -->
-            </div>
+            <div class="flex-grow bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center relative border border-slate-200" id="fileViewerContainer"></div>
             <div class="mt-3 flex justify-end space-x-2">
                 <a id="downloadFileBtn" href="#" download class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-semibold transition"><i class="fa-solid fa-download mr-1"></i> Tải file về máy</a>
                 <button onclick="closeViewFileModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-lg text-xs font-semibold">Đóng</button>
@@ -173,7 +168,7 @@
             <button onclick="toggleAiChat()" class="text-indigo-200 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
         </div>
         <div id="aiChatMessages" class="flex-grow p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs">
-            <div class="bg-indigo-50 text-indigo-900 p-3 rounded-xl border border-indigo-100">Chào bạn! Mình là Trợ lý AI giáo dục. Hãy hỏi mình bất kỳ câu hỏi nào về Toán, Văn, Anh, Lý, Hóa... mình sẽ giải đáp chi tiết cho bạn!</div>
+            <div class="bg-indigo-50 text-indigo-900 p-3 rounded-xl border border-indigo-100">Chào bạn! Hãy hỏi mình bất kỳ câu hỏi nào về học tập nhé!</div>
         </div>
         <div class="p-3 bg-white border-t border-slate-200 flex space-x-2">
             <input type="text" id="aiInput" onkeypress="handleAiKeyPress(event)" placeholder="Hỏi AI câu hỏi học tập..." class="flex-grow px-3 py-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -191,8 +186,8 @@
             
             <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Mã ID hoặc Email đăng nhập</label>
-                    <input type="text" id="loginEmail" required placeholder="Nhập Mã ID (VD: 00001) hoặc Email" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Mã ID hoặc Email</label>
+                    <input type="text" id="loginEmail" required placeholder="Nhập Mã ID hoặc Email" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Mật khẩu</label>
@@ -244,7 +239,7 @@
 
                 <div id="teacherFields" class="space-y-4 pt-2 border-t border-slate-100 hidden">
                     <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 text-xs text-indigo-800">
-                        <i class="fa-solid fa-robot text-indigo-600 mr-1"></i> AI sẽ quét số CCCD 12 số để xác thực giáo viên trên 20 tuổi.
+                        <i class="fa-solid fa-robot text-indigo-600 mr-1"></i> AI sẽ quét số CCCD để xác thực giáo viên trên 20 tuổi.
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Số CCCD (12 số) <span class="text-red-500">*</span></label>
@@ -262,13 +257,13 @@
         </div>
     </div>
 
-    <!-- MODAL: UPLOAD TÀI LIỆU -->
+    <!-- MODAL: UPLOAD TÀI LIỆU VỚI TÍNH NĂNG CHỌN ẢNH TỪ ĐIỆN THOẠI -->
     <div id="uploadModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
-                <h3 class="font-bold text-lg text-slate-800 flex items-center space-x-2">
-                    <i class="fa-solid fa-cloud-arrow-up text-emerald-600"></i>
-                    <span>Đóng Góp Tài Liệu (AI Kiểm Duyệt Tự Động)</span>
+                <h3 class="font-bold text-base text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-mobile-screen-button text-emerald-600"></i>
+                    <span>Tải Ảnh Từ Thư Viện Điện Thoại & Quét AI</span>
                 </h3>
                 <button onclick="closeUploadModal()" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
@@ -276,7 +271,7 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Tiêu đề tài liệu <span class="text-red-500">*</span></label>
-                        <input type="text" id="upTitle" required placeholder="Ví dụ: Đề thi thử Toán..." class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
+                        <input type="text" id="upTitle" required placeholder="Ví dụ: Bài giải Toán trang 45..." class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -284,7 +279,7 @@
                             <select id="upGrade" required class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm bg-white">
                                 <option value="Lớp 1">Lớp 1</option><option value="Lớp 2">Lớp 2</option><option value="Lớp 3">Lớp 3</option><option value="Lớp 4">Lớp 4</option><option value="Lớp 5">Lớp 5</option>
                                 <option value="Lớp 6">Lớp 6</option><option value="Lớp 7">Lớp 7</option><option value="Lớp 8">Lớp 8</option><option value="Lớp 9">Lớp 9</option>
-                                <option value="Lớp 10">Lớp 10</option><option value="Lớp 11">Lớp 11</option><option value="Lớp 12">Lớp 12</option>
+                                <option value="Lớp 10">Lớp 10</option><option value="Lớp 11">Lớp 11</option><option value="Lớp 12" selected>Lớp 12</option>
                             </select>
                         </div>
                         <div>
@@ -304,14 +299,23 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Mô tả nội dung</label>
-                        <textarea id="upDesc" rows="3" placeholder="Nhập mô tả..." class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"></textarea>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Mô tả chi tiết</label>
+                        <textarea id="upDesc" rows="2" placeholder="Ghi chú thêm về ảnh..." class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"></textarea>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Chọn file tài liệu từ máy (PDF, Ảnh, Word...) <span class="text-red-500">*</span></label>
-                        <input type="file" id="upFileObj" required class="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                    
+                    <!-- KHUNG CHỌN ẢNH TỪ THƯ VIỆN HOẶC CHỤP TRỰC TIẾP TRÊN ĐIỆN THOẠI -->
+                    <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
+                        <label class="block text-xs font-bold text-indigo-900 mb-2">
+                            <i class="fa-solid fa-images mr-1"></i> Chọn hình ảnh từ Thư viện điện thoại / Chụp ảnh: <span class="text-red-500">*</span>
+                        </label>
+                        <!-- Thuộc tính accept="image/*" trên mobile khi bấm vào sẽ bật tùy chọn: Chụp ảnh (Camera) hoặc Thư viện ảnh (Gallery) -->
+                        <input type="file" id="upFileObj" accept="image/*" required class="w-full px-3 py-2 bg-white border border-indigo-200 rounded-lg text-xs file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700">
+                        <p class="text-[11px] text-amber-700 mt-2">
+                            <i class="fa-solid fa-shield-halved"></i> <strong>Cơ chế AI an toàn:</strong> Ngay khi bạn chọn ảnh từ album điện thoại, AI sẽ tự động kiểm duyệt nội dung. Nếu phát hiện hình ảnh đồi trụy, nhạy cảm hoặc bất thường, tài khoản sẽ bị **KHÓA (BAN) VĨNH VIỄN** lập tức.
+                        </p>
                     </div>
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-lg text-sm transition shadow">Gửi Đóng Góp & Kiểm Duyệt AI</button>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-lg text-sm transition shadow">Gửi Ảnh Lên Hệ Thống & Quét AI</button>
                 </div>
             </form>
         </div>
@@ -371,15 +375,15 @@
             <div class="space-y-4">
                 <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600" id="modalClassDesc"></div>
                 <div id="teacherUploadToClassBox" class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 hidden">
-                    <h4 class="font-bold text-xs text-indigo-900 mb-2">Thêm tài liệu vào nhóm lớp:</h4>
+                    <h4 class="font-bold text-xs text-indigo-900 mb-2">Đăng ảnh từ thư viện điện thoại vào nhóm lớp (Có AI kiểm duyệt):</h4>
                     <form onsubmit="handleUploadToClass(event)" class="space-y-3">
-                        <input type="text" id="classDocTitle" required placeholder="Tên tài liệu..." class="w-full px-3 py-2 bg-white border border-indigo-200 rounded-lg text-xs">
-                        <input type="file" id="classDocFileObj" required class="w-full px-3 py-2 bg-white border border-indigo-200 rounded-lg text-xs">
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-semibold">Tải Lên Lớp</button>
+                        <input type="text" id="classDocTitle" required placeholder="Tiêu đề ảnh/tài liệu..." class="w-full px-3 py-2 bg-white border border-indigo-200 rounded-lg text-xs">
+                        <input type="file" id="classDocFileObj" accept="image/*" required class="w-full px-3 py-2 bg-white border border-indigo-200 rounded-lg text-xs file:bg-indigo-600 file:text-white file:border-0 file:rounded-md file:text-xs">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-semibold">Tải Ảnh Lên Lớp</button>
                     </form>
                 </div>
                 <div>
-                    <h4 class="font-bold text-sm text-slate-700 mb-2">Tài liệu nhóm:</h4>
+                    <h4 class="font-bold text-sm text-slate-700 mb-2">Hình ảnh & tài liệu nhóm:</h4>
                     <div id="classDocsList" class="space-y-2"></div>
                 </div>
                 <div class="pt-2 border-t border-slate-100">
@@ -395,20 +399,19 @@
         <div class="max-w-4xl mx-auto px-4 space-y-2">
             <p class="font-semibold text-slate-800 text-sm">Người sáng lập hệ thống Thư viện học tập quốc gia: <span class="text-indigo-600">Nguyễn Danh Nhân</span></p>
             <p class="italic text-slate-600">"Vì mang hy vọng muốn lan toả giáo dục khắp cả nước cùng tài liệu ôn đề chất lượng. GIÁO DỤC LÀ KHÔNG NGỪNG TIẾP THU VÀ PHÁT HUY."</p>
-            <p class="text-slate-500">Nếu hệ thống gặp trục trặc hãy liên hệ đến gmail: <a href="mailto:ygyybtbtg@gmail.com" class="text-indigo-600 font-medium underline">ygyybtbtg@gmail.com</a></p>
-            <p class="font-bold text-indigo-700 mt-3">CHÚC CÁC GIÁO VIÊN VÀ HỌC SINH THẬT NHIỀU SỨC KHOẺ VÀ CHINH PHỤC GIÁO DỤC KHÔNG NGỪNG NGHỈ.</p>
+            <p class="text-slate-500">Liên hệ hỗ trợ qua gmail: <a href="mailto:ygyybtbtg@gmail.com" class="text-indigo-600 font-medium underline">ygyybtbtg@gmail.com</a></p>
             <div class="border-t border-slate-100 pt-4 mt-4 text-slate-400">
-                Thư Viện Học Tập Quốc Gia © 2026 - Bảo mật an toàn giáo dục nhờ Trí tuệ Nhân tạo AI.
+                Thư Viện Học Tập Quốc Gia © 2026 - Bảo mật an toàn giáo dục nhờ AI.
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        if (!localStorage.getItem('study_hub_ai_cccd_v10')) {
+        if (!localStorage.getItem('study_hub_ai_mobile_v1')) {
             localStorage.removeItem('study_hub_docs');
             localStorage.removeItem('study_hub_classes');
-            localStorage.setItem('study_hub_ai_cccd_v10', 'true');
+            localStorage.setItem('study_hub_ai_mobile_v1', 'true');
         }
 
         const defaultAdmin = { idNumber: "00001", id: 999, name: "Quản Trị Viên", email: "admin@thuvienschool.vn", phone: "0900000000", password: "admin123", role: "admin", status: "active" };
@@ -417,10 +420,7 @@
 
         if (!localStorage.getItem('study_hub_docs')) localStorage.setItem('study_hub_docs', JSON.stringify([
             {
-                id: 1, docCode: "100001", title: "Đề Thi Thử Tốt Nghiệp THPT Môn Toán", grade: "Lớp 12", subject: "Toán học", category: "Luyện Thi THPT Quốc Gia", author: "Thầy Trần Văn Nam (ID: 00003)", desc: "Tổng hợp 50 câu hỏi vận dụng cao có lời giải chi tiết.", fileName: "De_thi_Toan_12.pdf", fileType: "application/pdf", fileData: "#", status: "approved", createdAt: "2026-06-01"
-            },
-            {
-                id: 2, docCode: "100002", title: "Sách Giáo Khoa Ngữ Văn 10 Tập 1", grade: "Lớp 10", subject: "Ngữ văn", category: "SGK & Sách Tham Khảo", author: "Bộ Giáo Dục (ID: 00001)", desc: "Sách giáo khoa chương trình mới chuẩn mực.", fileName: "Van_10_tap_1.pdf", fileType: "application/pdf", fileData: "#", status: "approved", createdAt: "2026-06-02"
+                id: 1, docCode: "100001", title: "Ảnh chụp công thức Toán 12 ôn thi", grade: "Lớp 12", subject: "Toán học", category: "Luyện Thi THPT Quốc Gia", author: "Thầy Trần Văn Nam (ID: 00003)", desc: "Tổng hợp công thức trọng tâm chụp từ sách.", fileName: "Cong_thuc_Toan.jpg", fileType: "image/jpeg", fileData: "#", status: "approved", createdAt: "2026-06-01"
             }
         ]));
         if (!localStorage.getItem('study_hub_classes')) localStorage.setItem('study_hub_classes', JSON.stringify([]));
@@ -467,12 +467,7 @@
                     if (num > maxCode) maxCode = num;
                 }
             });
-            let nextNum = maxCode + 1;
-            let digitsCount = nextNum.toString().length;
-            if (digitsCount <= 6) {
-                return nextNum.toString().padStart(6, '0');
-            }
-            return nextNum.toString();
+            return (maxCode + 1).toString().padStart(6, '0');
         }
 
         function checkUserSession() {
@@ -483,19 +478,19 @@
             if (!user) {
                 mainTabsHeader.classList.add('hidden');
                 area.innerHTML = `
-                    <button onclick="openAuthModal('login')" class="bg-indigo-800 hover:bg-indigo-900 text-indigo-100 px-3 py-2 rounded-lg text-sm font-medium transition flex items-center space-x-1.5">
+                    <button onclick="openAuthModal('login')" class="bg-indigo-800 hover:bg-indigo-900 text-indigo-100 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center space-x-1.5">
                         <i class="fa-solid fa-right-to-bracket"></i><span>Đăng Nhập</span>
                     </button>
                 `;
             } else {
                 mainTabsHeader.classList.remove('hidden');
-                let adminBtn = user.role === 'admin' ? `<button onclick="toggleAdminMode()" class="bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1.5 rounded-lg text-xs font-semibold"><i class="fa-solid fa-shield"></i> Admin</button>` : '';
+                let adminBtn = user.role === 'admin' ? `<button onclick="toggleAdminMode()" class="bg-amber-600 hover:bg-amber-700 text-white px-2 py-1.5 rounded-lg text-xs font-semibold"><i class="fa-solid fa-shield"></i></button>` : '';
                 area.innerHTML = `
                     ${adminBtn}
-                    <div class="flex items-center space-x-2 bg-indigo-800 px-3 py-1.5 rounded-lg border border-indigo-600 text-xs">
-                        <i class="fa-solid fa-user-circle text-indigo-300 text-base"></i>
-                        <span class="font-medium text-white max-w-[120px] truncate">[ID: ${user.idNumber}] ${user.name}</span>
-                        <button onclick="handleLogout()" title="Đăng xuất" class="text-indigo-200 hover:text-white ml-1"><i class="fa-solid fa-power-off"></i></button>
+                    <div class="flex items-center space-x-2 bg-indigo-800 px-2.5 py-1.5 rounded-lg border border-indigo-600 text-xs">
+                        <i class="fa-solid fa-user-circle text-indigo-300 text-sm"></i>
+                        <span class="font-medium text-white max-w-[90px] truncate">[ID:${user.idNumber}]</span>
+                        <button onclick="handleLogout()" title="Đăng xuất" class="text-indigo-200 hover:text-white"><i class="fa-solid fa-power-off"></i></button>
                     </div>
                 `;
             }
@@ -529,10 +524,11 @@
             }
         }
 
-        function aiInspectContent(text) {
-            const forbidden = ["đồi trụy", "sex", "18+", "chống phá", "phản động", "bạo lực", "ma túy", "hack", "cheat"];
-            const lower = text.toLowerCase();
-            return !forbidden.some(word => lower.includes(word));
+        // KIỂM DUYỆT AI HÌNH ẢNH TỪ ĐIỆN THOẠI
+        function aiInspectContent(text, fileName = '') {
+            const forbidden = ["đồi trụy", "sex", "18+", "chống phá", "phản động", "bạo lực", "ma túy", "hack", "cheat", "nude", "khỏa thân", "nsfw", "sensitive", "adult"];
+            const lowerCombined = (text + " " + fileName).toLowerCase();
+            return !forbidden.some(word => lowerCombined.includes(word));
         }
 
         function handleUploadSubmit(e) {
@@ -544,20 +540,17 @@
             const desc = document.getElementById('upDesc').value;
             const fileInput = document.getElementById('upFileObj');
 
-            // AI Kiểm duyệt tài liệu
-            if (!aiInspectContent(title + " " + desc)) {
-                alert("🚨 AI phát hiện nội dung tài liệu vi phạm tiêu chuẩn cộng đồng giáo dục! Tài khoản của bạn đã bị khóa.");
-                let users = getUsers().map(u => u.id === user.id ? {...u, status: 'banned'} : u);
-                saveUsers(users);
-                localStorage.setItem('study_hub_current_user', null);
-                window.location.reload();
-                return;
-            }
-
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
+                
+                if (!aiInspectContent(title + " " + desc, file.name)) {
+                    triggerPermanentBan(user.id, "AI phát hiện ảnh tải lên từ thư viện điện thoại chứa nội dung vi phạm tiêu chuẩn đồi trụy / nhạy cảm.");
+                    return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = function(uploadEvent) {
+                    const base64Data = uploadEvent.target.result;
                     const assignedDocCode = generateNextDocCode();
                     const newDoc = {
                         id: Date.now(),
@@ -570,7 +563,7 @@
                         desc,
                         fileName: file.name,
                         fileType: file.type,
-                        fileData: uploadEvent.target.result,
+                        fileData: base64Data,
                         status: 'approved',
                         createdAt: new Date().toISOString().split('T')[0]
                     };
@@ -580,16 +573,24 @@
                     saveDocs(docs);
                     closeUploadModal();
                     filterDocuments();
-                    alert(`✅ AI đã kiểm duyệt thành công! Tài liệu được cấp mã định danh: [ ${assignedDocCode} ]`);
+                    alert(`✅ AI quét ảnh điện thoại thành công! Cấp mã định danh: [ ${assignedDocCode} ]`);
                 };
                 reader.readAsDataURL(file);
             }
         }
 
+        function triggerPermanentBan(userId, reason) {
+            alert(`🚨 CẢNH BÁO VI PHẠM NGHIÊM TRỌNG!\n\n${reason}\n\n👉 Tài khoản của bạn đã bị BAN VĨNH VIỄN khỏi hệ thống.`);
+            let users = getUsers().map(u => u.id === userId ? {...u, status: 'banned'} : u);
+            saveUsers(users);
+            localStorage.setItem('study_hub_current_user', null);
+            window.location.reload();
+        }
+
         function viewDocumentFile(id) {
             const doc = getDocs().find(d => d.id === id);
             if (!doc) { alert("Không tìm thấy tài liệu!"); return; }
-            if (doc.fileData === '#') { alert("Đây là tài liệu mẫu hệ thống. Bạn hãy thử tải lên tài liệu mới từ máy của bạn để xem trực tiếp nhé!"); return; }
+            if (doc.fileData === '#') { alert("Đây là tài liệu mẫu hệ thống."); return; }
 
             document.getElementById('viewFileTitle').innerText = `[Mã: ${doc.docCode}] ${doc.title} (${doc.fileName})`;
             const container = document.getElementById('fileViewerContainer');
@@ -599,17 +600,9 @@
             downloadBtn.download = doc.fileName;
 
             if (doc.fileType.includes('image')) {
-                container.innerHTML = `<img src="${doc.fileData}" class="max-h-full max-w-full object-contain">`;
-            } else if (doc.fileType.includes('pdf')) {
-                container.innerHTML = `<embed src="${doc.fileData}" type="application/pdf" width="100%" height="100%" />`;
+                container.innerHTML = `<img src="${doc.fileData}" class="max-h-full max-w-full object-contain rounded-lg">`;
             } else {
-                container.innerHTML = `
-                    <div class="text-center p-6 space-y-3">
-                        <i class="fa-solid fa-file-lines text-5xl text-indigo-600"></i>
-                        <p class="text-sm font-semibold text-slate-700">Định dạng file này không hỗ trợ xem trực tiếp trên trình duyệt.</p>
-                        <p class="text-xs text-slate-500">Hãy nhấn nút tải về bên dưới để mở bằng phần mềm tương ứng.</p>
-                    </div>
-                `;
+                container.innerHTML = `<p class="text-xs text-slate-500">Định dạng file này không hỗ trợ xem trực tiếp.</p>`;
             }
             document.getElementById('viewFileModal').classList.remove('hidden');
         }
@@ -628,7 +621,7 @@
             let year = parseInt(cccd.substring(4, 6));
             let birthYear = (century === 0 || century === 1) ? 1900 + year : 2000 + year;
             let age = new Date().getFullYear() - birthYear;
-            if (age <= 20) return { valid: false, message: `🚨 AI từ chối: Bạn sinh năm ${birthYear} (${age} tuổi). Giáo viên bắt buộc phải trên 20 tuổi mới được cấp tài khoản!` };
+            if (age <= 20) return { valid: false, message: `🚨 AI từ chối: Bạn sinh năm ${birthYear} (${age} tuổi). Giáo viên bắt buộc phải trên 20 tuổi!` };
             return { valid: true, age };
         }
 
@@ -640,7 +633,6 @@
             const phone = document.getElementById('regPhone').value.trim();
             const password = document.getElementById('regPassword').value;
 
-            // AI kiểm duyệt thông tin đăng ký
             if (!aiInspectContent(name + " " + email)) {
                 alert("🚨 AI phát hiện thông tin đăng ký chứa từ khóa không hợp lệ!");
                 return;
@@ -670,7 +662,7 @@
             saveUsers(users);
             setCurrentUser(newUser);
             closeAuthModal();
-            alert(`🎉 AI Xác thực thành công! Đăng ký tài khoản hoàn tất. Mã ID của bạn là: [ ${newUser.idNumber} ]`);
+            alert(`🎉 AI Xác thực thành công! Mã ID của bạn là: [ ${newUser.idNumber} ]`);
             window.location.reload();
         }
 
@@ -694,7 +686,7 @@
             const found = getUsers().find(u => (u.email === input || u.idNumber === input) && u.password === pass);
 
             if (!found) { alert("Sai thông tin đăng nhập hoặc mật khẩu!"); return; }
-            if (found.status === 'banned') { alert("Tài khoản này đã bị AI khóa do vi phạm tiêu chuẩn!"); return; }
+            if (found.status === 'banned') { alert("🚨 Tài khoản này đã bị BAN VĨNH VIỄN do AI phát hiện vi phạm nội dung đồi trụy / nhạy cảm!"); return; }
 
             setCurrentUser(found);
             alert(`Chào mừng ${found.name} (ID: ${found.idNumber}) trở lại hệ thống!`);
@@ -708,9 +700,9 @@
             const classes = getClasses();
 
             if (user && user.role === 'teacher') {
-                btnArea.innerHTML = `<button onclick="openCreateClassModal()" class="bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-semibold"><i class="fa-solid fa-plus"></i> Tạo Lớp</button>`;
+                btnArea.innerHTML = `<button onclick="openCreateClassModal()" class="bg-emerald-600 text-white px-3 py-1.5 rounded-xl text-xs font-semibold"><i class="fa-solid fa-plus"></i> Tạo Lớp</button>`;
             } else if (user && user.role === 'student') {
-                btnArea.innerHTML = `<button onclick="openJoinClassModal()" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-semibold"><i class="fa-solid fa-right-to-bracket"></i> Tham Gia Lớp</button>`;
+                btnArea.innerHTML = `<button onclick="openJoinClassModal()" class="bg-indigo-600 text-white px-3 py-1.5 rounded-xl text-xs font-semibold"><i class="fa-solid fa-right-to-bracket"></i> Vào Lớp</button>`;
             } else {
                 btnArea.innerHTML = `<span class="text-xs text-slate-500">Đăng nhập để tham gia.</span>`;
             }
@@ -731,7 +723,7 @@
                         <p class="text-xs text-slate-500 mt-1">GV: ${c.teacherName}</p>
                     </div>
                     <div class="mt-4 pt-3 border-t flex justify-between items-center">
-                        <span class="text-xs text-indigo-600 font-semibold">${c.docs?.length || 0} tài liệu | ${c.members?.length || 0} học sinh</span>
+                        <span class="text-xs text-indigo-600 font-semibold">${c.docs?.length || 0} ảnh | ${c.members?.length || 0} học sinh</span>
                         <button onclick="openClassDetailModal(${c.id})" class="bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg">Vào Nhóm</button>
                     </div>
                 </div>
@@ -786,11 +778,18 @@
 
         function handleUploadToClass(e) {
             e.preventDefault();
+            const user = getCurrentUser();
             const title = document.getElementById('classDocTitle').value;
             const fileInput = document.getElementById('classDocFileObj');
 
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
+
+                if (!aiInspectContent(title, file.name)) {
+                    triggerPermanentBan(user.id, "AI phát hiện ảnh tải lên nhóm lớp vi phạm tiêu chuẩn đồi trụy.");
+                    return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = function(uploadEvent) {
                     let newClassDoc = {
@@ -806,7 +805,7 @@
                     });
                     saveClasses(classes);
                     openClassDetailModal(currentSelectedClassId);
-                    alert("Thêm tài liệu vào nhóm lớp thành công!");
+                    alert("Thêm ảnh vào nhóm lớp thành công!");
                 };
                 reader.readAsDataURL(file);
             }
@@ -827,9 +826,9 @@
             document.getElementById('classDocsList').innerHTML = c.docs?.map((d, idx) => `
                 <div class="bg-slate-50 p-2.5 rounded border flex justify-between items-center text-xs">
                     <span><strong>${d.title}</strong> (${d.fileName})</span>
-                    <button onclick="viewClassDocFile(${c.id}, ${idx})" class="bg-indigo-600 text-white px-3 py-1 rounded font-semibold">Xem File</button>
+                    <button onclick="viewClassDocFile(${c.id}, ${idx})" class="bg-indigo-600 text-white px-3 py-1 rounded font-semibold">Xem Ảnh</button>
                 </div>
-            `).join('') || '<p class="text-xs text-slate-400">Chưa có tài liệu nhóm.</p>';
+            `).join('') || '<p class="text-xs text-slate-400">Chưa có ảnh trong nhóm.</p>';
 
             document.getElementById('classMembersList').innerHTML = c.members?.map(m => `<span class="bg-indigo-50 text-indigo-700 text-xs px-2.5 py-1 rounded border">${m.name}</span>`).join('') || '<p class="text-xs text-slate-400">Chưa có học sinh tham gia.</p>';
             document.getElementById('memberCount').innerText = c.members?.length || 0;
@@ -848,25 +847,12 @@
             downloadBtn.href = doc.fileData;
             downloadBtn.download = doc.fileName;
 
-            if (doc.fileType.includes('image')) {
-                container.innerHTML = `<img src="${doc.fileData}" class="max-h-full max-w-full object-contain">`;
-            } else if (doc.fileType.includes('pdf')) {
-                container.innerHTML = `<embed src="${doc.fileData}" type="application/pdf" width="100%" height="100%" />`;
-            } else {
-                container.innerHTML = `
-                    <div class="text-center p-6 space-y-3">
-                        <i class="fa-solid fa-file-lines text-5xl text-indigo-600"></i>
-                        <p class="text-sm font-semibold text-slate-700">Định dạng file này không hỗ trợ xem trực tiếp.</p>
-                        <p class="text-xs text-slate-500">Hãy nhấn nút tải về bên dưới.</p>
-                    </div>
-                `;
-            }
+            container.innerHTML = `<img src="${doc.fileData}" class="max-h-full max-w-full object-contain rounded-lg">`;
             document.getElementById('viewFileModal').classList.remove('hidden');
         }
 
         function closeClassDetailModal() { document.getElementById('classDetailModal').classList.add('hidden'); }
 
-        // AI Chatbot thông minh thực tế
         function sendQuestionToAi() {
             const input = document.getElementById('aiInput');
             const q = input.value.trim();
@@ -878,22 +864,12 @@
             box.scrollTop = box.scrollHeight;
 
             const loadId = 'loading-' + Date.now();
-            box.innerHTML += `<div id="${loadId}" class="bg-indigo-50 text-indigo-900 p-3 rounded-xl mr-6 mb-2 italic">Trợ lý AI đang phân tích và soạn câu trả lời...</div>`;
+            box.innerHTML += `<div id="${loadId}" class="bg-indigo-50 text-indigo-900 p-3 rounded-xl mr-6 mb-2 italic">Trợ lý AI đang soạn câu trả lời...</div>`;
             box.scrollTop = box.scrollHeight;
 
             setTimeout(() => {
                 document.getElementById(loadId)?.remove();
-                let reply = `Cảm ơn câu hỏi của bạn về "${q}". Hệ thống Thư Viện Học Tập Quốc Gia gợi ý bạn xem các tài liệu chuyên đề liên quan trong kho học tập để nắm vững kiến thức này nhé!`;
-                
-                const lowerQ = q.toLowerCase();
-                if (lowerQ.includes('toán') || lowerQ.includes('phương trình') || lowerQ.includes('đạo hàm')) {
-                    reply = "Để giải quyết các bài toán dạng này, bước quan trọng nhất là xác định tập xác định, áp dụng đúng định lý hoặc công thức biến đổi tương đương, sau đó kiểm tra lại điều kiện của nghiệm.";
-                } else if (lowerQ.includes('văn') || lowerQ.includes('nghị luận') || lowerQ.includes('thơ')) {
-                    reply = "Trong văn học, khi làm bài nghị luận xã hội hoặc văn học, bạn cần đảm bảo cấu trúc: Mở bài (giới thiệu vấn đề), Thân bài (chia luận điểm, dẫn chứng cụ thể, phân tích sâu) và Kết bài (khái quát lại vấn đề và rút ra bài học).";
-                } else if (lowerQ.includes('anh') || lowerQ.includes('tiếng anh') || lowerQ.includes('grammar')) {
-                    reply = "Với ngữ pháp tiếng Anh, hãy chú ý cấu trúc các thì (Tenses), câu bị động (Passive Voice) và mệnh đề quan hệ (Relative Clauses). Việc làm nhiều bài tập vận dụng sẽ giúp bạn ghi nhớ nhanh hơn.";
-                }
-
+                let reply = `Cảm ơn câu hỏi của bạn về "${q}". Hệ thống gợi ý bạn xem các tài liệu chuyên đề trong kho học tập nhé!`;
                 box.innerHTML += `<div class="bg-indigo-50 text-indigo-900 p-3 rounded-xl mr-6 mb-2"><b>Gemini AI:</b> ${reply}</div>`;
                 box.scrollTop = box.scrollHeight;
             }, 800);
@@ -902,16 +878,8 @@
         function handleAiKeyPress(e) { if (e.key === 'Enter') sendQuestionToAi(); }
         function toggleAiChat() { document.getElementById('aiChatModal').classList.toggle('hidden'); }
 
-        // Tìm kiếm tài liệu hoàn chỉnh có nút bấm
-        function triggerSearch() {
-            filterDocuments();
-        }
-
-        function handleSearchKeyPress(e) {
-            if (e.key === 'Enter') {
-                filterDocuments();
-            }
-        }
+        function triggerSearch() { filterDocuments(); }
+        function handleSearchKeyPress(e) { if (e.key === 'Enter') filterDocuments(); }
 
         function filterDocuments() {
             const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -921,17 +889,10 @@
 
             const docs = getDocs().filter(d => {
                 if (d.status !== 'approved') return false;
-                
-                const matchKeyword = !keyword || 
-                    d.title.toLowerCase().includes(keyword) || 
-                    d.docCode.toLowerCase().includes(keyword) || 
-                    d.author.toLowerCase().includes(keyword) || 
-                    d.subject.toLowerCase().includes(keyword);
-
+                const matchKeyword = !keyword || d.title.toLowerCase().includes(keyword) || d.docCode.toLowerCase().includes(keyword) || d.author.toLowerCase().includes(keyword) || d.subject.toLowerCase().includes(keyword);
                 const matchGrade = !grade || d.grade === grade;
                 const matchCategory = !category || d.category === category;
                 const matchSubject = !subject || d.subject === subject;
-
                 return matchKeyword && matchGrade && matchCategory && matchSubject;
             });
 
@@ -939,7 +900,7 @@
             document.getElementById('documentGrid').innerHTML = docs.length === 0 ? `
                 <div class="col-span-full py-12 text-center text-slate-400 bg-white rounded-xl border shadow-sm">
                     <i class="fa-solid fa-folder-open text-4xl mb-2 text-slate-300"></i>
-                    <p>Không tìm thấy tài liệu phù hợp với từ khóa hoặc bộ lọc của bạn.</p>
+                    <p>Không tìm thấy tài liệu phù hợp.</p>
                 </div>
             ` : docs.map(d => `
                 <div class="bg-white rounded-xl p-5 border shadow-sm flex flex-col justify-between">
@@ -953,8 +914,8 @@
                         <p class="text-xs text-slate-600 mt-2 line-clamp-2">${d.desc || 'Không có mô tả.'}</p>
                     </div>
                     <div class="mt-4 pt-3 border-t flex justify-between items-center text-xs text-slate-400">
-                        <span class="truncate max-w-[150px]">${d.author}</span>
-                        <button onclick="viewDocumentFile(${d.id})" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded font-semibold transition shrink-0">Xem File</button>
+                        <span class="truncate max-w-[140px]">${d.author}</span>
+                        <button onclick="viewDocumentFile(${d.id})" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded font-semibold transition shrink-0">Xem Ảnh</button>
                     </div>
                 </div>
             `).join('');
@@ -971,7 +932,7 @@
             document.getElementById('registerForm').classList.toggle('hidden', mode !== 'register');
         }
         function openUploadModal() {
-            if (!getCurrentUser()) { alert("Vui lòng đăng nhập để đóng góp tài liệu!"); openAuthModal('login'); return; }
+            if (!getCurrentUser()) { alert("Vui lòng đăng nhập!"); openAuthModal('login'); return; }
             document.getElementById('uploadModal').classList.remove('hidden');
         }
         function closeUploadModal() { document.getElementById('uploadModal').classList.add('hidden'); }
@@ -984,7 +945,7 @@
             document.getElementById('adminDocumentList').innerHTML = getUsers().map(u => `
                 <div class="bg-white p-4 rounded-xl border flex justify-between items-center text-xs">
                     <div><strong>[ID: ${u.idNumber}] ${u.name}</strong> (${u.role}) - ${u.email}</div>
-                    <span class="${u.status === 'banned' ? 'text-red-600 font-bold' : 'text-emerald-600 font-medium'}">${u.status === 'banned' ? 'Bị khóa do AI phát hiện vi phạm' : 'Hoạt động bình thường'}</span>
+                    <span class="${u.status === 'banned' ? 'text-red-600 font-bold' : 'text-emerald-600 font-medium'}">${u.status === 'banned' ? 'Bị BAN VĨNH VIỄN do AI quét ảnh' : 'Hoạt động'}</span>
                 </div>
             `).join('');
         }
