@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thư Viện Học Tập Quốc Gia - Lớp 1 đến Lớp 12</title>
+    <title>Thư Viện Học Tập Quốc Gia - Lớp 1 Đến Lớp 12</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -12,6 +12,7 @@
             --text-color: #1e293b;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --success-color: #16a34a;
         }
 
         * {
@@ -33,19 +34,19 @@
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             margin-bottom: 0.5rem;
         }
 
         header p {
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .container {
@@ -68,7 +69,7 @@
         .card h2 {
             margin-bottom: 1.5rem;
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             border-bottom: 2px solid var(--bg-color);
             padding-bottom: 0.5rem;
         }
@@ -98,6 +99,12 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
+        .search-wrapper {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
         .btn {
             background-color: var(--primary-color);
             color: white;
@@ -116,6 +123,38 @@
 
         .btn:active {
             transform: scale(0.98);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th, table td {
+            padding: 0.85rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        table th {
+            background-color: #f1f5f9;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #e0f2fe;
+            color: #0369a1;
         }
 
         footer {
@@ -140,6 +179,9 @@
             .card {
                 padding: 1rem;
             }
+            .search-wrapper {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -147,11 +189,36 @@
 
     <header>
         <h1>Thư Viện Học Tập Quốc Gia</h1>
-        <p>Hệ thống tài liệu học tập toàn diện từ Lớp 1 đến Lớp 12</p>
+        <p>Hệ thống chia sẻ học liệu và tài liệu học tập toàn diện từ Lớp 1 đến Lớp 12</p>
     </header>
 
     <div class="container">
-        <!-- Khung tải tài liệu lên lớp học -->
+        <!-- Khung Tìm kiếm & Tra cứu tài liệu -->
+        <div class="card">
+            <h2>Tra Cứu Tài Liệu Học Tập</h2>
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" class="form-control" placeholder="Nhập tên tài liệu bạn muốn tìm kiếm...">
+                <button class="btn" onclick="searchDocs()">Tìm kiếm</button>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã ID</th>
+                            <th>Tiêu đề tài liệu</th>
+                            <th>Khối Lớp</th>
+                            <th>Ngày đăng</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="docTableBody">
+                        <!-- Dữ liệu render động -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Khung tải tài liệu lên hệ thống -->
         <div class="card">
             <h2>Tải Tài Liệu Lên Hệ Thống</h2>
             <form id="uploadForm">
@@ -180,7 +247,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="docFile">Chọn file tài liệu (PDF, Hình ảnh...)</label>
+                    <label for="docFile">Chọn file tài liệu (PDF, Hình ảnh, Word...)</label>
                     <input type="file" id="docFile" class="form-control" required>
                 </div>
 
@@ -198,11 +265,73 @@
     </footer>
 
     <script>
+        // Khởi tạo danh sách tài liệu mẫu lưu trữ bằng localStorage
+        if (!localStorage.getItem('tv_documents')) {
+            const sampleDocs = [
+                { id: 'LIB-01', title: 'Đề cương Ôn tập Toán Lớp 5', lop: 'lop-5', date: '2026-03-28', fileUrl: '#' },
+                { id: 'LIB-02', title: 'Ngữ Văn 9 - Phân tích tác phẩm trọng tâm', lop: 'lop-9', date: '2026-03-28', fileUrl: '#' },
+                { id: 'LIB-03', title: 'Tài liệu Ôn thi THPT Quốc Gia môn Hóa', lop: 'lop-12', date: '2026-03-28', fileUrl: '#' }
+            ];
+            localStorage.setItem('tv_documents', JSON.stringify(sampleDocs));
+        }
+
+        function loadTable(keyword = '') {
+            const docs = JSON.parse(localStorage.getItem('tv_documents'));
+            const tbody = document.getElementById('docTableBody');
+            tbody.innerHTML = '';
+
+            const filtered = docs.filter(d => d.title.toLowerCase().includes(keyword.toLowerCase()));
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #64748b;">Không tìm thấy tài liệu phù hợp.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(d => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${d.id}</strong></td>
+                    <td>${d.title}</td>
+                    <td><span class="badge">${d.lop.replace('-', ' ').toUpperCase()}</span></td>
+                    <td>${d.date}</td>
+                    <td><a href="${d.fileUrl}" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">Xem / Tải</a></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function searchDocs() {
+            const keyword = document.getElementById('searchInput').value;
+            loadTable(keyword);
+        }
+
         document.getElementById('uploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const title = document.getElementById('docTitle').value;
+            const lop = document.getElementById('targetClass').value;
+            const fileInput = document.getElementById('docFile');
+
+            const docs = JSON.parse(localStorage.getItem('tv_documents'));
+            const newId = 'LIB-0' + (docs.length + 1);
+
+            const newDoc = {
+                id: newId,
+                title: title,
+                lop: lop,
+                date: new Date().toISOString().split('T')[0],
+                fileUrl: fileInput.files[0] ? URL.createObjectURL(fileInput.files[0]) : '#'
+            };
+
+            docs.push(newDoc);
+            localStorage.setItem('tv_documents', JSON.stringify(docs));
+            
             alert('Tải tài liệu lên lớp học thành công!');
             this.reset();
+            loadTable();
         });
+
+        // Load danh sách ban đầu khi mở trang
+        loadTable();
     </script>
 </body>
 </html>
